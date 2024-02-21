@@ -1,0 +1,117 @@
+ #Find All Duplicate Elements in Array
+n=int(input())
+l=list(map(int,input().split()))[:n]
+d=[]
+for i in range(n):
+    if l.count(l[i])>1:
+        if l[i] in d:
+            continue
+        else:
+            d.append(l[i])
+
+for i in d:
+    print(i)
+#Find All Unique Elements in Array
+n=int(input())
+l=list(map(int,input().split()))[:n]
+for i in l:
+    if l.count(i)==1:
+        print(i,end=" ")
+#Cooking Competiton
+t=int(input())
+for i in range(t):
+    n=int(input())
+    even,odd=0,0
+    for i in range(1,n+1):
+        if n%i==0:
+            if i%2==0:
+                even+=1
+            else:
+                odd+=1
+
+    if even==odd:
+        print(1)
+    else:
+        print(0)
+#Cooking Competition
+def chef(t):
+    if t==0:
+        return
+    else:
+        n=int(input())
+        even,odd=0,0
+        for i in range(1,n+1):
+            if n%i==0:
+                if i%2==0:
+                    even+=1
+                else:
+                    odd+=1
+
+        if even==odd:
+            print(1)
+        else:
+            print(0)
+    
+    chef(t-1)
+    
+t=int(input())
+chef(t)
+#Cost of groceries
+def Cost(t):
+    if t==0:
+        return 
+    else:
+        n,x=map(int,input().split())
+        fresh=list(map(int,input().split()))
+        cost=list(map(int,input().split()))
+        total_cost=0
+        for i in range(n):
+            if fresh[i]>=x:
+                total_cost+=cost[i]
+        print(total_cost)
+    Cost(t-1)
+    
+t=int(input())
+Cost(t)
+#Prime Number
+n=int(input())
+factors=[]
+if n==1:
+    print("Neither prime nor composite")
+else:
+    for i in range(1,n+1):
+        if n%i==0:
+            factors.append(i)
+
+    if len(factors)>2:
+        print("Not Prime")
+    else:
+        print("Prime")
+#Running Compare
+def compare(t):
+    if t==0:
+        return
+    else:
+        n=int(input())
+        both_happy=0
+        alice=list(map(int,input().split()))
+        bob=list(map(int,input().split()))
+        for i in range(n):
+            if bob[i]<=(2*alice[i]) and alice[i]<=(2*bob[i]):
+                both_happy+=1
+        print(both_happy)
+    
+    compare(t-1)
+
+t=int(input())
+compare(t)
+#Even Perfect Numbers
+n=int(input())
+for i in range(1,n+1):
+    factors=[]
+    if i%2==0:
+        for j in range(1,i):
+            if i%j==0:
+                factors.append(j)
+        if sum(factors)==i:
+            print(i)
